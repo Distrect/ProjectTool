@@ -1,0 +1,33 @@
+{
+  "name": "new-coco-gantt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "nohoist": [
+      "**/@syncfusion/ej2-angular-gantt",
+      "**/@syncfusion/ej2-angular-gantt/**",
+      "**/@syncfusion/ej2-base",
+      "**/@syncfusion/ej2-base/**"
+    ],
+    "packages": [
+      "packages/api",
+      "packages/shared",
+      "packages/client",
+      "packages/app"
+    ]
+  },
+  "devDependencies": {
+    "@nx/node": "19.7.0",
+    "@nx/web": "19.7.0-canary.20240906-a3c2db8",
+    "nx": "19.6.6",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@nx/webpack": "19.7.0-canary.20240906-a3c2db8",
+    "nx-electron": "18.0.1",
+    "tsc": "^2.0.4",
+    "tsx": "4.19.0"
+  }
+}
