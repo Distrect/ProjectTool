@@ -1,5 +1,8 @@
-/node_modules
-
-
+*/node_modules
+*/dist
+*.d.ts
+*.js
 .nx/cache
 .nx/workspace-data
+node_modules
+LICENCE

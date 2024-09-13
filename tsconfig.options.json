@@ -1,0 +1,47 @@
+{
+  "references": [
+    { "path": "./packages/api" },
+    { "path": "./packages/client" },
+    { "path": "./packages/app" },
+    { "path": "./packages/shared" },
+    { "path": "./common" }
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2021",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "outDir": "./dist/msin",
+    "experimentalDecorators": true,
+    "incremental": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "composite": true,
+    "declarationMap": true,
+
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": false,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "strict": true,
+    "emitDeclarationOnly": false,
+    "noEmitOnError": true,
+    "noEmit": false,
+    "importHelpers": true
+  }
+}

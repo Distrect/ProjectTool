@@ -1,9 +1,12 @@
 {
   "name": "new-coco-gantt",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "cmp": "tsc -b"
+  },
   "workspaces": {
     "nohoist": [
       "**/@syncfusion/ej2-angular-gantt",

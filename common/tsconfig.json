@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.options.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}

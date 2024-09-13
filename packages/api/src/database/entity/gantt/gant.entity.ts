@@ -5,11 +5,11 @@ import { Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('gantt')
 export default class GanttEntity {
   @PrimaryGeneratedColumn()
-  ganttID: number;
+  ganttID!: number;
 
   @OneToMany(() => TaskEntity, (taskEntity) => taskEntity.gantt)
-  tasks: TaskEntity[];
+  tasks!: TaskEntity[];
 
   @OneToOne(() => ProjectEntity, (projectEntity) => projectEntity.gantt)
-  project: ProjectEntity;
+  project!: ProjectEntity;
 }

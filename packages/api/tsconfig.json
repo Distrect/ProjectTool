@@ -1,11 +1,47 @@
+// {
+//   "extends": "../../tsconfig.options.json",
+//   "references": [{ "path": "../../common" }],
+//   "exclude": ["test"],
+//   "compilerOptions": {
+//     "moduleResolution": "node",
+//     "module": "commonjs",
+//     "baseUrl": ".",
+//     // "rootDir": "./src",
+//     "outDir": "./dist",
+//     "target": "ES2021",
+//     "composite": null,
+//     "declaration": true,
+//     "removeComments": true,
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "allowSyntheticDefaultImports": true,
+//     "sourceMap": true,
+//     "incremental": true,
+//     "skipLibCheck": true,
+//     "strictNullChecks": true,
+//     "noImplicitAny": false,
+//     "strictBindCallApply": false,
+//     "forceConsistentCasingInFileNames": false,
+//     "noFallthroughCasesInSwitch": false,
+//     "paths": {
+//       "@common/*": ["../../common/*"],
+//       "@entities/*": ["src/database/entity/*"],
+//       "@featureModules/*": ["src/modules/*"]
+//     }
+//   }
+// }
 {
+  "extends": "../../tsconfig.options.json",
+  "references": [{ "path": "../../common" }],
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "composite": false,
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
@@ -19,7 +55,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@entities/*": ["src/database/entity/*"],
-      "@featureModules/*": ["src/modules/*"]
+      "@featureModules/*": ["src/modules/*"],
+      "@common/*": ["../../common/*"]
     }
   }
 }

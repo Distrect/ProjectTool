@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "yarn run build && nodemon index.ts",
-    "build": "yarn tsc"
+    "build": "tsc"
   },
   "author": "Samet Sarıçiçek",
   "license": "MIT",
