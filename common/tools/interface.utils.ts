@@ -3,7 +3,7 @@ export type CreatedAtAttribute = {
 };
 
 export type UpdatedAtAttribute = {
-  createdAt: Date;
+  updatedAt: Date;
 };
 
 export interface ITimeStamp extends CreatedAtAttribute, UpdatedAtAttribute {}
