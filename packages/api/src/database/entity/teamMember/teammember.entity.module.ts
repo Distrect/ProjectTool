@@ -1,5 +1,5 @@
-import TeamMemberDAO from '@entities/teamMember/teamMember.dao';
-import TeamMemberEntity from '@entities/teamMember/teamMember.entity';
+import { TeamMemberDAO } from '@entities/teamMember/teamMember.dao';
+import { TeamMemberEntity } from '@entities/teamMember/teamMember.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -8,4 +8,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [TeamMemberDAO],
   exports: [TeamMemberDAO],
 })
-export default class TeamMemberEntityModule {}
+export class TeamMemberEntityModule {}

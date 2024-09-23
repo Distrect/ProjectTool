@@ -1,4 +1,4 @@
-import CocomoEntity from '@entities/cocomo/cocomo.entity';
+import { CocomoEntity } from '@entities/cocomo/cocomo.entity';
 import {
   ICreateCocomoDATA,
   IGetCocomoDATA,
@@ -10,7 +10,7 @@ import { RecordNotFoundError } from 'src/shared/errors';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export default class CocomoDAO {
+export class CocomoDAO {
   constructor(
     @InjectRepository(CocomoEntity)
     private cocomoRepository: Repository<CocomoEntity>,

@@ -1,4 +1,4 @@
-import { ICAF, IFunctionPointAttributes } from 'cocogantt-shared';
+import { ICAF, IFunctionPointAttributes } from '@common/index';
 
 export interface UniqueFunctionPointArgs {
   functionPointID: number;

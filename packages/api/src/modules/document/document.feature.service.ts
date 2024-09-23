@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import {
-  ArrUFPFunctions,
   calculateDataIntegrityValues,
-  functionPointAttributes,
-  IFunctionPointValues,
   calculateFunction,
-  IFunctionPoint,
+} from 'activity-calculator';
+import type {
+  IFunctionPointValues,
+  IFunctionPointEntity,
   ICAF,
   IFunctionPointAttributes,
-} from 'cocogantt-shared';
+} from '@common/interface';
+import { FUNCTION_POINT_ATTRIBUTES } from '@common/constants';
 import {
   Document,
   IBorderOptions,
@@ -20,7 +21,7 @@ import {
   TableRow,
   TextRun,
 } from 'docx';
-import ProjectDAO from '@entities/project/project.dao';
+import { ProjectDAO } from '@entities/project/project.dao';
 
 const borders: IBorderOptions = {
   style: 'single',
@@ -35,13 +36,11 @@ const allSideBorder: ITableCellBorders = {
 };
 
 @Injectable()
-export default class DocumentFeatureService {
+export class DocumentFeatureService {
   constructor(private projectDAO: ProjectDAO) {}
-
   public async createProjectDocument(projectID: number) {
-    const project = await this.projectDAO.getProject(projectID);
+    await this.projectDAO.getProject(projectID);
   }
-
   private generateDITable(caf: ICAF) {
     const diTableHeader = new TableRow({
       children: [
@@ -99,7 +98,6 @@ export default class DocumentFeatureService {
         new TableCell({
           verticalAlign: 'center',
           borders: allSideBorder,
-
           children: [
             new Paragraph({
               run: {
@@ -122,10 +120,8 @@ export default class DocumentFeatureService {
       },
       rows: [diTableHeader, ...dataRows, resultRow],
     });
-
     return diTable;
   }
-
   private generatewUFPTable(data: IFunctionPointAttributes) {
     const ufpHeaders = [
       'Functions',
@@ -137,15 +133,13 @@ export default class DocumentFeatureService {
       'Complex Weight',
       'Total',
     ];
-
-    const ufpRowHeaders: ArrUFPFunctions = [
+    const ufpRowHeaders = [
       'User Input',
       'User Output',
       'User Query',
       'Internal Files',
       'External Interfaces',
     ];
-
     const ufpHeaderRow = new TableRow({
       children: [
         ...ufpHeaders.map(
@@ -156,11 +150,8 @@ export default class DocumentFeatureService {
         ),
       ],
     });
-
     const ufpDataRows: TableRow[] = [];
-
     for (const header of ufpRowHeaders) {
-      const constant: IFunctionPointValues = functionPointAttributes[header];
       const tableData: IFunctionPointValues = data[header];
       const sideHeaderCell = new TableCell({
         children: [new Paragraph({ text: header })],
@@ -168,36 +159,35 @@ export default class DocumentFeatureService {
       const result = new TableCell({
         children: [
           new Paragraph({
-            text: calculateFunction(header, tableData).toString(),
+            text: calculateFunction(header as any, tableData).toString(),
           }),
         ],
       });
-
       const dataRow = Object.entries(tableData).flatMap(([key, value]) => [
         new TableCell({
           children: [new Paragraph({ text: value.toString() })],
         }),
         new TableCell({
-          children: [new Paragraph({ text: constant[key]?.toString() })],
+          children: [
+            new Paragraph({
+              text: FUNCTION_POINT_ATTRIBUTES[header][key]?.toString(),
+            }),
+          ],
         }),
       ]);
-
       ufpDataRows.push(
         new TableRow({
           children: [sideHeaderCell, ...dataRow, result],
         }),
       );
     }
-
     return new Table({
       rows: [ufpHeaderRow, ...ufpDataRows],
     });
   }
-
-  public async generateFunctionPointSection(data: IFunctionPoint) {
+  public async generateFunctionPointSection(data: IFunctionPointEntity) {
     const diTable = this.generateDITable(data.caf);
     const ufpTable = this.generatewUFPTable(data.attributes);
-
     return await Packer.toBuffer(
       new Document({
         sections: [{ children: [diTable] }, { children: [ufpTable] }],

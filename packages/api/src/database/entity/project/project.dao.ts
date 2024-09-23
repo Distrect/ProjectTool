@@ -1,4 +1,4 @@
-import ProjectEntity from '@entities/project/project.entity';
+import { ProjectEntity } from '@entities/project/project.entity';
 import { ICreateProjectArgs } from '@entities/project/project.interface';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -6,7 +6,7 @@ import { RecordNotFoundError } from 'src/shared/errors';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export default class ProjectDAO {
+export class ProjectDAO {
   constructor(
     @InjectRepository(ProjectEntity)
     private projectRepository: Repository<ProjectEntity>,

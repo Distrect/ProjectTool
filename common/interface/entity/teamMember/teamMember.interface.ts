@@ -1,5 +1,5 @@
-import { IProjectEntity } from 'common/interface/entity/project';
-import { ITimeStamp } from 'common/tools';
+import { IProjectEntity } from '@common/interface';
+import { ITimeStamp } from '@common/tools';
 
 export interface ITeamMemberRelations {
   project: IProjectEntity;

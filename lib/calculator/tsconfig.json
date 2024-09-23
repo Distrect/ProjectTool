@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "target": "es6",
+    "lib": ["ES2017"],
+
+    "declaration": true,
+    "composite": true,
+
+    "allowSyntheticDefaultImports": true,
+
+    "paths": {
+      "@common/*": ["../../common/*"],
+      "@lib": ["./src"]
+    }
+  },
+  "references": [
+    {
+      "path": "../../common"
+    }
+  ]
+}

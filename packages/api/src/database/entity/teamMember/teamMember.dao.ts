@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RecordNotFoundError } from 'src/shared/errors';
 import { Repository } from 'typeorm';
-import TeamMemberEntity from '@entities/teamMember/teamMember.entity';
+import { TeamMemberEntity } from '@entities/teamMember/teamMember.entity';
 import {
   ICreateTeamMemberDATA,
   IGetTeamMemberDATA,
@@ -11,7 +11,7 @@ import {
 import { IProjectArgs } from '@entities/project/project.interface';
 
 @Injectable()
-export default class TeamMemberDAO {
+export class TeamMemberDAO {
   constructor(
     @InjectRepository(TeamMemberEntity)
     private teamMemberRepository: Repository<TeamMemberEntity>,

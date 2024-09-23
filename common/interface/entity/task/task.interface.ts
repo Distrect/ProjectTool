@@ -1,4 +1,4 @@
-import { ITimeStamp } from 'common/tools';
+import { ITimeStamp } from '@common/tools';
 
 export type ITaskPrimaryKey = {
   taskID: number;

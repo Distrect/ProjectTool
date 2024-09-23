@@ -1,4 +1,4 @@
-import { CreatedAtAttribute } from 'common/tools';
+import { CreatedAtAttribute } from '@common/tools';
 
 export type IEventPrimaryKey = {
   eventID: number;

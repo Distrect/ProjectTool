@@ -2,13 +2,11 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import { bootstrap } from 'api'
+import { bootstrap, CocomoFeatureService } from 'api'
 
 async function createWindow(): Promise<void> {
-  // Create the browser window.
-
-  const apiContext = await bootstrap()
-  console.log(apiContext)
+  const apiCOntext = await bootstrap()
+  const cfs = apiCOntext.get(CocomoFeatureService)
 
   const mainWindow = new BrowserWindow({
     width: 900,

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import CocomoDAO from '@entities/cocomo/cocomo.dao';
+import { CocomoDAO } from '@entities/cocomo/cocomo.dao';
 import {
   ICreateCocomoDATA,
   IGetCocomoDATA,
@@ -7,7 +7,7 @@ import {
 } from '@entities/cocomo/cocomo.interface';
 
 @Injectable()
-export default class CocomoFeatureService {
+export class CocomoFeatureService {
   constructor(private cocomoDAO: CocomoDAO) {}
 
   public async getCocomo(args: IGetCocomoDATA) {

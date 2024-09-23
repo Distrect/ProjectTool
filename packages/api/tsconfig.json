@@ -1,53 +1,26 @@
-// {
-//   "extends": "../../tsconfig.options.json",
-//   "references": [{ "path": "../../common" }],
-//   "exclude": ["test"],
-//   "compilerOptions": {
-//     "moduleResolution": "node",
-//     "module": "commonjs",
-//     "baseUrl": ".",
-//     // "rootDir": "./src",
-//     "outDir": "./dist",
-//     "target": "ES2021",
-//     "composite": null,
-//     "declaration": true,
-//     "removeComments": true,
-//     "emitDecoratorMetadata": true,
-//     "experimentalDecorators": true,
-//     "allowSyntheticDefaultImports": true,
-//     "sourceMap": true,
-//     "incremental": true,
-//     "skipLibCheck": true,
-//     "strictNullChecks": true,
-//     "noImplicitAny": false,
-//     "strictBindCallApply": false,
-//     "forceConsistentCasingInFileNames": false,
-//     "noFallthroughCasesInSwitch": false,
-//     "paths": {
-//       "@common/*": ["../../common/*"],
-//       "@entities/*": ["src/database/entity/*"],
-//       "@featureModules/*": ["src/modules/*"]
-//     }
-//   }
-// }
 {
-  "extends": "../../tsconfig.options.json",
-  "references": [{ "path": "../../common" }],
+  "extends": "../../tsconfig.base.json",
+  "references": [
+    {
+      "path": "../../common/"
+    }
+  ],
+  "include": ["src/**/*", "../../common/**/*"],
+  "exclude": ["test", "dist/**/*"],
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2021",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "composite": false,
+    "sourceMap": true,
     "declaration": true,
+    "incremental": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "composite": false,
-    "target": "ES2021",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "incremental": true,
-    "skipLibCheck": true,
     "strictNullChecks": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,

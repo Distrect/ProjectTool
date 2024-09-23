@@ -1,4 +1,4 @@
-import GanttEntity from '@entities/gantt/gant.entity';
+import { GanttEntity } from '@entities/gantt/gant.entity';
 import { IGetGanttDATA } from '@entities/gantt/gantt.interface';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -6,7 +6,7 @@ import { RecordNotFoundError } from 'src/shared/errors';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export default class GanttDAO {
+export class GanttDAO {
   constructor(
     @InjectRepository(GanttEntity)
     private ganttRepository: Repository<GanttEntity>,

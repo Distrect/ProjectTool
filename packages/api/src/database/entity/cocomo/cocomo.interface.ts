@@ -1,11 +1,11 @@
-import type CocomoEntity from '@entities/cocomo/cocomo.entity';
-import type ProjectEntity from '@entities/project/project.entity';
-import { CocomoMode } from 'cocogantt-shared';
+import type { CocomoEntity } from '@entities/cocomo/cocomo.entity';
+import type { ProjectEntity } from '@entities/project/project.entity';
+import { CocomoMode } from '@common/index';
 
 export interface ICreateCocomoDATA {
   mode: CocomoMode;
   kloc: number;
-  project:
+  project?:
     | {
         projectID: number;
       }

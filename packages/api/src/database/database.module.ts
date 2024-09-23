@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import CocomoEntityModule from '@entities/cocomo/cocomo.entity.module';
-import FunctionPointEntityModule from '@entities/functionPoint/functionPonint.entity.module';
 
 @Module({
   imports: [
@@ -11,8 +9,6 @@ import FunctionPointEntityModule from '@entities/functionPoint/functionPonint.en
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    FunctionPointEntityModule,
-    CocomoEntityModule,
   ],
 })
-export default class DatabaseModule {}
+export class DatabaseModule {}

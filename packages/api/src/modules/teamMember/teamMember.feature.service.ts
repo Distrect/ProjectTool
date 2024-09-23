@@ -1,5 +1,5 @@
 import { IProjectArgs } from '@entities/project/project.interface';
-import TeamMemberDAO from '@entities/teamMember/teamMember.dao';
+import { TeamMemberDAO } from '@entities/teamMember/teamMember.dao';
 import {
   ICreateTeamMemberDATA,
   IGetTeamMemberDATA,
@@ -8,7 +8,7 @@ import {
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export default class TeamMemberFeatureService {
+export class TeamMemberFeatureService {
   constructor(private teamMemberDAO: TeamMemberDAO) {}
 
   public async getTeamMembers(args: IProjectArgs) {

@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import FunctionPointDAO from '@entities/functionPoint/functionPoint.dao';
+import { FunctionPointDAO } from '@entities/functionPoint/functionPoint.dao';
 import {
   ICreateFunctionPointDATA,
   IUpdateFunctionPointDATA,
 } from '@entities/functionPoint/functionPoint.interface';
 
 @Injectable()
-export default class FunctionPointFeatureService {
+export class FunctionPointFeatureService {
   constructor(private functionPointDAO: FunctionPointDAO) {}
 
   public async createFunctionPoint(data: ICreateFunctionPointDATA) {

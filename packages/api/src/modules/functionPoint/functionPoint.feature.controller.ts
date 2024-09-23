@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 
 @Controller('')
-export default class FunctionPointFeatureController {
+export class FunctionPointFeatureController {
   constructor() {}
 }

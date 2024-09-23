@@ -1,0 +1,19 @@
+{
+  "name": "activity-calculator",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Shared package for CocoGantt application",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "yarn run build && node ./dist/index.js ",
+    "build": "tsc -b && tsc-alias"
+  },
+  "author": "Samet Sarıçiçek",
+  "license": "MIT",
+  "dependencies": {
+    "tsconfig-paths": "^4.2.0",
+    "@types/node": "^20.12.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}

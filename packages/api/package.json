@@ -5,6 +5,11 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "main": "dist/packages/api/src/index.js",
+  "types": "dist/packages/api/src/index.d.ts",
+  "files": [
+    "*"
+  ],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -17,7 +22,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migrate": "yarn prisma migrate dev --name init"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -26,13 +32,12 @@
     "@nestjs/cqrs": "^10.2.7",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
-    "cocogantt-shared": "0.0.1",
+    "activity-calculator": "0.0.1",
     "docx": "^8.5.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.20",
-    "typescript": "^5.6.2"
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

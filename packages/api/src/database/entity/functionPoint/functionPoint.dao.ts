@@ -1,5 +1,5 @@
 import { UniqueFunctionPointArgs } from './functionPoint.interface';
-import FunctionPointEntity from '@entities/functionPoint/functionPoint.entity';
+import { FunctionPointEntity } from '@entities/functionPoint/functionPoint.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -11,7 +11,7 @@ import {
 import { UniqueEntityArgs } from '@entities/project/project.interface';
 
 @Injectable()
-export default class FunctionPointDAO {
+export class FunctionPointDAO {
   constructor(
     @InjectRepository(FunctionPointEntity)
     private functionPointRepository: Repository<FunctionPointEntity>,

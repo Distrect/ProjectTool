@@ -1,8 +1,19 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../tsconfig.base.json",
+  "include": ["../../common/*"],
   "compilerOptions": {
-    "outDir": "../../dist/app"
+    "baseUrl": ".",
+    "outDir": "../../dist/app",
+    "noUnusedLocals": false,
+    "paths": {
+      "@common/*": ["../../common/*"]
+    }
   },
   "files": [],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
+
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.web.json" },
+    { "path": "../../common" }
+  ]
 }

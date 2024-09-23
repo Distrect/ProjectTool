@@ -1,5 +1,5 @@
-import ProjectDAO from '@entities/project/project.dao';
-import ProjectEntity from '@entities/project/project.entity';
+import { ProjectDAO } from '@entities/project/project.dao';
+import { ProjectEntity } from '@entities/project/project.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -8,4 +8,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [ProjectDAO],
   exports: [ProjectDAO],
 })
-export default class ProjectEntityModule {}
+export class ProjectEntityModule {}

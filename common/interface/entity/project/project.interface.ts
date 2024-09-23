@@ -1,12 +1,16 @@
-import { IGantEntity } from 'common/interface/entity/gantt';
-import { ITeamMemberEntity } from 'common/interface/entity/teamMember';
-import { ITimeStamp } from 'common/tools';
+import {
+  IFunctionPointEntity,
+  ITeamMemberEntity,
+  ICocomoEntity,
+  IGantEntity,
+} from '@common/interface';
+import { ITimeStamp } from '@common/tools';
 
 export interface IProjectRelations {
-  functionPoint: null;
-  cocomo: null;
-  teamMembers: ITeamMemberEntity[];
-  gantt: IGantEntity;
+  functionPoint: IFunctionPointEntity | null;
+  cocomo: ICocomoEntity | null;
+  teamMembers: ITeamMemberEntity[] | null;
+  gantt: IGantEntity | null;
 }
 
 export interface IProjectBase {
@@ -14,7 +18,4 @@ export interface IProjectBase {
   projectName: string;
 }
 
-export interface IProjectEntity
-  extends IProjectBase,
-    IProjectRelations,
-    ITimeStamp {}
+export interface IProjectEntity extends IProjectBase, ITimeStamp {}

@@ -1,6 +1,12 @@
 {
-  "extends": "./tsconfig.options.json",
+  "extends": "./tsconfig.base.json",
   "exclude": ["node_modules"],
-  "files": [],
-  "compilerOptions": {}
+  "references": [
+    { "path": "./packages/client" },
+    { "path": "./lib/calculator" },
+    { "path": "./packages/api" },
+    { "path": "./packages/app" },
+    { "path": "./common" }
+  ],
+  "files": []
 }

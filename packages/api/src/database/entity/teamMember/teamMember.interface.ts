@@ -1,4 +1,4 @@
-import TeamMemberEntity from '@entities/teamMember/teamMember.entity';
+import type { TeamMemberEntity } from '@entities/teamMember/teamMember.entity';
 
 export type ICreateTeamMemberDATA = {
   memberName: string;

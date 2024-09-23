@@ -1,24 +1,37 @@
-import ProjectEntity from '@entities/project/project.entity';
-import {
-  ICAF,
-  IFunctionPoint,
+import type {
+  IFunctionPointEntity,
   IFunctionPointAttributes,
-} from 'cocogantt-shared';
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
+  ICAF,
+} from '@common/index';
+import { ProjectEntity } from '@entities/project/project.entity';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('functionPoint')
-export default class FunctionPointEntity implements IFunctionPoint {
+export class FunctionPointEntity implements IFunctionPointEntity {
   @PrimaryGeneratedColumn()
-  functionPointID: number;
+  functionPointID!: number;
 
   @Column({ type: 'simple-json' })
-  attributes: IFunctionPointAttributes;
+  attributes!: IFunctionPointAttributes;
 
   @Column({ type: 'simple-json' })
-  caf: ICAF;
+  caf!: ICAF;
 
   @OneToOne(() => ProjectEntity)
-  project: ProjectEntity;
+  project!: ProjectEntity;
+
+  @CreateDateColumn()
+  createdAt!: Date;
+
+  @UpdateDateColumn()
+  updatedAt!: Date;
 
   public toJSON() {
     return {

@@ -1,14 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import GanttDAO from '@entities/gantt/gantt.dao';
-import TaskDAO from '@entities/task/task.dao';
+import { GanttDAO } from '@entities/gantt/gantt.dao';
 import { IUpdateGanttChart } from './gantt.feature.interface';
 import { IGetGanttDATA } from '@entities/gantt/gantt.interface';
 
 @Injectable()
-export default class GanttFeatureService {
+export class GanttFeatureService {
   constructor(
     private ganttDAO: GanttDAO,
-    private taskDAO: TaskDAO,
+    // private taskDAO: TaskDAO,
   ) {}
 
   public async deleteGanttChart(data: IGetGanttDATA) {
@@ -59,9 +58,9 @@ export default class GanttFeatureService {
     }
 
     await Promise.all([
-      this.taskDAO.bulkCreateTaskRecords(createdTasks),
-      this.taskDAO.bulkUpdateTaskRecords(updatedTasks),
-      this.taskDAO.bulkDeleteTaskRecords(deletedTasks),
+      // this.taskDAO.bulkCreateTaskRecords(createdTasks),
+      // this.taskDAO.bulkUpdateTaskRecords(updatedTasks),
+      // this.taskDAO.bulkDeleteTaskRecords(deletedTasks),
     ]).then((res) => res);
 
     return await this.ganttDAO.getGanttWithTasks({ ganttID: data.ganttID });

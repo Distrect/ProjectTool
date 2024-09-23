@@ -1,11 +1,22 @@
 {
-  "extends": "../tsconfig.options.json",
+  "extends": "../tsconfig.base.json",
+  "exclude": ["./dist/*"],
   "compilerOptions": {
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "target": "ES6",
+
+    "baseUrl": ".",
     "rootDir": ".",
     "outDir": "./dist",
-    "resolveJsonModule": true,
+    "skipLibCheck": false,
+
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@common/*": ["./*"]
+    }
   }
 }

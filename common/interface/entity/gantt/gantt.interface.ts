@@ -1,12 +1,12 @@
-import { ITask } from 'common/interface/entity/task';
-import { ITimeStamp, CreatedAtAttribute } from 'common/tools';
+import { IProjectEntity, ITaskEntity } from '@common/interface';
+import { ITimeStamp } from '@common/tools';
 
 export type ProjectForeignKey = {
-  projectID: number;
+  project: IProjectEntity;
 };
 
-export interface IGantt extends Readonly<CreatedAtAttribute> {
-  tasks: ITask[];
+export interface IGantt {
+  tasks: ITaskEntity[];
   projectStartDate?: Date;
   projectEndDate?: Date;
 }

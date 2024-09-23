@@ -1,7 +1,3 @@
-import CocomoEntity from '@entities/cocomo/cocomo.entity';
-import FunctionPointEntity from '@entities/functionPoint/functionPoint.entity';
-import GanttEntity from '@entities/gantt/gant.entity';
-import TeamMemberEntity from '@entities/teamMember/teamMember.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -12,27 +8,32 @@ import {
   JoinColumn,
   OneToMany,
 } from 'typeorm';
+import { IProjectEntity } from '@common/index';
+import { CocomoEntity } from '@entities/cocomo/cocomo.entity';
+import { FunctionPointEntity } from '@entities/functionPoint/functionPoint.entity';
+import { GanttEntity } from '@entities/gantt/gant.entity';
+import { TeamMemberEntity } from '@entities/teamMember/teamMember.entity';
 
 @Entity('project')
-export default class ProjectEntity {
+export class ProjectEntity implements IProjectEntity {
   @PrimaryGeneratedColumn()
-  projectID: number;
+  projectID!: number;
 
   @Column({ type: 'text' })
-  projectName: string;
+  projectName!: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 
   @OneToOne(() => FunctionPointEntity, { cascade: true })
   @JoinColumn({
     name: 'functionPointFID',
     referencedColumnName: 'functionPointID',
   })
-  functionPoint: FunctionPointEntity | null;
+  functionPoint!: FunctionPointEntity | null;
 
   @OneToOne(
     () => CocomoEntity,
@@ -40,18 +41,18 @@ export default class ProjectEntity {
     { cascade: true },
   )
   @JoinColumn()
-  cocomo: CocomoEntity | null;
+  cocomo!: CocomoEntity | null;
 
   @OneToMany(
     () => TeamMemberEntity,
-    (teamMemberEntity) => teamMemberEntity.project,
+    (referencedEntity) => referencedEntity.project,
     { cascade: true },
   )
-  teamMembers: TeamMemberEntity[] | null;
+  teamMembers!: TeamMemberEntity[] | null;
 
   @OneToOne(() => GanttEntity, (referencedEntity) => referencedEntity.project, {
     cascade: true,
   })
   @JoinColumn()
-  gantt: GanttEntity | null;
+  gantt!: GanttEntity | null;
 }

@@ -1,17 +1,31 @@
-import ProjectEntity from '@entities/project/project.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { ITeamMemberEntity } from '@common/index';
+import { ProjectEntity } from '@entities/project/project.entity';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  UpdateDateColumn,
+  CreateDateColumn,
+} from 'typeorm';
 
 @Entity('teamMember')
-export default class TeamMemberEntity {
+export class TeamMemberEntity implements ITeamMemberEntity {
   @PrimaryGeneratedColumn()
-  teamMemberID: number;
+  teamMemberID!: number;
 
   @Column({ type: 'text' })
-  memeberName: string;
+  memeberName!: string;
 
   @Column({ type: 'text' })
-  title: string;
+  title!: string;
 
   @ManyToOne(() => ProjectEntity, (projectEntity) => projectEntity.teamMembers)
-  project: ProjectEntity;
+  project!: ProjectEntity;
+
+  @CreateDateColumn()
+  createdAt!: Date;
+
+  @UpdateDateColumn()
+  updatedAt!: Date;
 }

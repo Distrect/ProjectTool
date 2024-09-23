@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "module": "CommonJS",
+    // "moduleResolution": "e",
+
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    // "importHelpers": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    // "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    // "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true
+  }
+}

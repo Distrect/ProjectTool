@@ -1,4 +1,4 @@
-import { ITask } from './../../database/entity/task/task.interface';
+import { ITask } from '@common/index';
 
 type ChangeState = 'Unchanged' | 'Deleted' | 'Updated' | 'Created';
 

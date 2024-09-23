@@ -1,5 +1,5 @@
-import ProjectEntityModule from '@entities/project/project.entity.module';
-import DocumentFeatureService from '@featureModules/document/document.feature.service';
+import { ProjectEntityModule } from '@entities/project/project.entity.module';
+import { DocumentFeatureService } from '@featureModules/document/document.feature.service';
 import { Module } from '@nestjs/common';
 
 @Module({
@@ -7,4 +7,4 @@ import { Module } from '@nestjs/common';
   providers: [DocumentFeatureService],
   exports: [DocumentFeatureService],
 })
-export default class DocumentFeatureModule {}
+export class DocumentFeatureModule {}
