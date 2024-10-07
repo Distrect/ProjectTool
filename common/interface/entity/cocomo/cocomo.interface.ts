@@ -1,18 +1,18 @@
 import { IProjectEntity } from '@common/interface';
 import { ITimeStamp } from '@common/tools';
 
+export type CocomoTableKeys = 'organic' | 'semidetached' | 'embedded';
+
 export interface ICOCOMOValues {
-  a: [number, number];
-  b: [number, number];
+  a: number;
+  b: number;
   c: number;
   d: number;
 }
 
-export interface ICOCOMOTable {
-  organic: ICOCOMOValues;
-  semidetached: ICOCOMOValues;
-  embedded: ICOCOMOValues;
-}
+export type ICOCOMOTable = {
+  [key in CocomoTableKeys]: ICOCOMOValues;
+};
 
 export interface ICocomoRelations {
   project: IProjectEntity;
@@ -32,6 +32,7 @@ export interface ICocomoBase {
 
 export interface IEffortAdjustmentFactor {
   attribute: string;
+  short: string;
   veryLow: number | null;
   low: number | null;
   nominal: 1;

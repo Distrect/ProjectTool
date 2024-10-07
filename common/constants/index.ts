@@ -1,12 +1,17 @@
 import {
+  CafKey,
+  FPValuesKey,
+  ICOCOMOTable,
   IEffortAdjustmentFactor,
   IFunctionPointAttributes,
   ILOC,
+  UFPFunctions,
 } from '@common/interface';
 
-const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
+const EFFORT_ADJUSTMENT_FACTOR: Readonly<IEffortAdjustmentFactor[]> = [
   {
     attribute: 'Required software reliability',
+    short: 'RELY',
     veryLow: 0.75,
     low: 0.88,
     nominal: 1,
@@ -16,6 +21,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Size of application database',
+    short: 'DATA',
     veryLow: null,
     low: 0.94,
     nominal: 1,
@@ -25,6 +31,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Complexity of the product',
+    short: 'CPLX',
     veryLow: 0.7,
     low: 0.85,
     nominal: 1,
@@ -34,6 +41,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Run-time performance constraints',
+    short: 'TIME',
     veryLow: null,
     low: null,
     nominal: 1,
@@ -43,6 +51,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Memory constraints',
+    short: 'STOR',
     veryLow: null,
     low: null,
     nominal: 1,
@@ -52,6 +61,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Volatility of the virtual machine environment',
+    short: 'VIRT',
     veryLow: null,
     low: 0.87,
     nominal: 1,
@@ -61,6 +71,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Required turnabout time',
+    short: 'TURN',
     veryLow: null,
     low: 0.87,
     nominal: 1,
@@ -70,6 +81,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Analyst capability',
+    short: 'ACAP',
     veryLow: 1.46,
     low: 1.19,
     nominal: 1,
@@ -79,6 +91,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Applications experience',
+    short: 'APEX',
     veryLow: 1.29,
     low: 1.13,
     nominal: 1,
@@ -88,6 +101,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Software engineer capability',
+    short: 'PCAP',
     veryLow: 1.42,
     low: 1.17,
     nominal: 1,
@@ -97,6 +111,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Virtual machine experience',
+    short: 'VEXP',
     veryLow: 1.21,
     low: 1.1,
     nominal: 1,
@@ -106,6 +121,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Programming language experience',
+    short: 'LEXP',
     veryLow: 1.14,
     low: 1.07,
     nominal: 1,
@@ -115,6 +131,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Application of software engineering methods',
+    short: 'AEXP',
     veryLow: 1.24,
     low: 1.1,
     nominal: 1,
@@ -124,6 +141,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Use of software tools',
+    short: 'TOOL',
     veryLow: 1.24,
     low: 1.1,
     nominal: 1,
@@ -133,6 +151,7 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
   },
   {
     attribute: 'Required development schedule',
+    short: 'SCED',
     veryLow: 1.23,
     low: 1.08,
     nominal: 1,
@@ -140,9 +159,40 @@ const EFFORT_ADJUSTMENT_FACTOR: IEffortAdjustmentFactor[] = [
     veryHigh: 1.1,
     extraHigh: null,
   },
-] as const;
+];
 
-const LINES_OF_CODE: ILOC[] = [
+const SYSTEM_CHARACTERISTICS: Readonly<CafKey[]> = [
+  'Concurrent Users',
+  'Data Communications',
+  'Data Processing',
+  'Distributed Processing',
+  'Ease of Installation',
+  'Includes Specialized Processing Features',
+  'Internal Communication Complexity',
+  'Online Data Storage',
+  'Online Transaction Volume',
+  'Operational Ease',
+  'Performance',
+  'Reusability',
+  'Security',
+  'User Interfaces',
+];
+
+const UFP_CHARACHTERISTICS: Readonly<UFPFunctions[]> = [
+  'User Input',
+  'User Output',
+  'User Query',
+  'Internal Files',
+  'External Interfaces',
+];
+
+const FUNCTION_POINT_VALUES: Readonly<FPValuesKey[]> = [
+  'low',
+  'avarage',
+  'high',
+];
+
+const LINES_OF_CODE: Readonly<ILOC[]> = [
   { language: 'ABAP (SAP) ', avarage: 28, median: 18, low: 16, high: 60 },
   { language: 'ASP', avarage: 18, median: 51, low: 60, high: 15 },
   { language: 'Assembler ', avarage: 51, median: 54, low: 15, high: 69 },
@@ -191,9 +241,9 @@ const LINES_OF_CODE: ILOC[] = [
   { language: 'SQL ', avarage: 53, median: 47, low: 134, high: 31 },
   { language: 'VB.NET ', avarage: 47, median: 53, low: 31, high: 63 },
   { language: 'Visual Basic ', avarage: 53, median: 62, low: 63, high: 25 },
-] as const;
+];
 
-const FUNCTION_POINT_ATTRIBUTES: IFunctionPointAttributes = {
+const FUNCTION_POINT_ATTRIBUTES: Readonly<IFunctionPointAttributes> = {
   'User Input': {
     low: 3,
     avarage: 4,
@@ -219,6 +269,25 @@ const FUNCTION_POINT_ATTRIBUTES: IFunctionPointAttributes = {
     avarage: 7,
     high: 10,
   },
-} as const;
+};
 
-export { EFFORT_ADJUSTMENT_FACTOR, LINES_OF_CODE, FUNCTION_POINT_ATTRIBUTES };
+const COCOMO_TABLE: ICOCOMOTable = {
+  organic: { a: 2.4, b: 1.05, c: 2.5, d: 0.38 },
+  semidetached: { a: 3.0, b: 1.12, c: 2.5, d: 0.35 },
+  embedded: {
+    a: 3.6,
+    b: 1.2,
+    c: 2.5,
+    d: 0.32,
+  },
+};
+
+export {
+  EFFORT_ADJUSTMENT_FACTOR,
+  LINES_OF_CODE,
+  FUNCTION_POINT_ATTRIBUTES,
+  SYSTEM_CHARACTERISTICS,
+  UFP_CHARACHTERISTICS,
+  FUNCTION_POINT_VALUES,
+  COCOMO_TABLE,
+};

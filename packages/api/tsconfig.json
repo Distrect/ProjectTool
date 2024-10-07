@@ -8,15 +8,18 @@
   "include": ["src/**/*", "../../common/**/*"],
   "exclude": ["test", "dist/**/*"],
   "compilerOptions": {
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "ES2015",
+    "moduleResolution": "Bundler",
     "target": "ES2021",
+
     "baseUrl": ".",
     "outDir": "./dist",
+
     "composite": false,
     "sourceMap": true,
     "declaration": true,
     "incremental": true,
+
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

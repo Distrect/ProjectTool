@@ -7,3 +7,7 @@ export type UpdatedAtAttribute = {
 };
 
 export interface ITimeStamp extends CreatedAtAttribute, UpdatedAtAttribute {}
+
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
