@@ -2787,6 +2787,13 @@
   dependencies:
     uuid "9.0.1"
 
+"@ngrx/store@^18.0.2":
+  version "18.0.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-18.0.2.tgz#be885154531f52ce6fe0bcd1a6790c75544b42ea"
+  integrity sha512-ajwv0+njsO4vzArp9esnFvs1wyUb1U1W8E8LSCKrcW2hWWo9o1Pezj+JRsdQwatxHfrrPFuTDyajsl6GQM/JSA==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@17.3.9":
   version "17.3.9"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-17.3.9.tgz#cfb27add90a1bb522ecbf869b79369145d4d9e6e"

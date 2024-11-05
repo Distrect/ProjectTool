@@ -3,6 +3,37 @@ import { ITimeStamp } from '@common/tools';
 
 export type CocomoTableKeys = 'organic' | 'semidetached' | 'embedded';
 
+export type EafKeys =
+  | 'RELY'
+  | 'DATA'
+  | 'CPLX'
+  | 'TIME'
+  | 'STOR'
+  | 'VIRT'
+  | 'TURN'
+  | 'ACAP'
+  | 'APEX'
+  | 'PCAP'
+  | 'VEXP'
+  | 'LEXP'
+  | 'AEXP'
+  | 'TOOL'
+  | 'SCED';
+
+export type EafValueKeys =
+  | 'veryLow'
+  | 'low'
+  | 'nominal'
+  | 'high'
+  | 'veryHigh'
+  | 'extraHigh';
+
+export interface IEafFunctionData {
+  function: EafKeys;
+  key: EafValueKeys;
+  value: number;
+}
+
 export interface ICOCOMOValues {
   a: number;
   b: number;
@@ -32,7 +63,7 @@ export interface ICocomoBase {
 
 export interface IEffortAdjustmentFactor {
   attribute: string;
-  short: string;
+  short: EafKeys;
   veryLow: number | null;
   low: number | null;
   nominal: 1;
